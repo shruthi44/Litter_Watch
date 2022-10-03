@@ -1,8 +1,8 @@
 package com.example.major.project;
 
-public enum ComplaintCatogery {
+public enum ComplaintCategory {
     ENVIRONMENT,
-    ROADSAFETY,
+    ROAD_SAFETY,
     FOOD,
     HEALTH
 

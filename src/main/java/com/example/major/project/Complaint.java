@@ -1,9 +1,29 @@
 package com.example.major.project;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Service;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.sql.Time;
+import java.util.Date;
+
+
+@Entity
 public class Complaint {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String place;
     private String description;
+   // private DateTimeFormat dateTimeFormat;
+
+
+    public Complaint() {
+    }
 
     public Long getId() {
         return id;

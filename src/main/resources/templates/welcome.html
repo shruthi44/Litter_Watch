@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>welcome</title>
+</head>
+<body>
+
+<form action="/" method="post">
+   Address: <input th:text="${complaintForm.place}"/>
+    Description:<input th:text="${complaintForm.description}">
+    <input type="submit" value="submit">
+</form>
+
+<!--
+<div th:text="${trackId}"></div>
+-->
+
+
+</body>
+</html>
