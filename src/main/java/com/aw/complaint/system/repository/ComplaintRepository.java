@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ComplaintRepository extends JpaRepository<Complaint,Long> {
+
+    //Complaint findById();
 }

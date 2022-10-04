@@ -31,5 +31,12 @@ public class ComplaintController {
         return "confirm-page";
     }
 
+
+    @GetMapping("/show")
+    public String showComplaintById(@RequestParam (name="trackingId", required = false) Long id, Model model) {
+        model.addAttribute("complain",complaintService.trackComplaintById(id));
+        return "showcomplain-page";
+    }
+
 }
 
