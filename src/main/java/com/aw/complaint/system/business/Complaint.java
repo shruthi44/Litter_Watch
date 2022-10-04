@@ -1,14 +1,9 @@
-package com.aw.complaint.system.Business;
-
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.stereotype.Service;
+package com.aw.complaint.system.business;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.sql.Time;
-import java.util.Date;
 
 
 @Entity

@@ -1,6 +1,6 @@
-package com.aw.complaint.system.Repository;
+package com.aw.complaint.system.repository;
 
-import com.aw.complaint.system.Business.Complaint;
+import com.aw.complaint.system.business.Complaint;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

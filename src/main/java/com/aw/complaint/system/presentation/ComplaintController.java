@@ -1,7 +1,7 @@
-package com.aw.complaint.system.Presentation;
+package com.aw.complaint.system.presentation;
 
-import com.aw.complaint.system.Business.Complaint;
-import com.aw.complaint.system.Repository.ComplaintRepository;
+import com.aw.complaint.system.business.Complaint;
+import com.aw.complaint.system.business.ComplaintService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +14,7 @@ public class ComplaintController {
 
 
     @Autowired
-    ComplaintRepository repository;
+    ComplaintService complaintService;
 
     @GetMapping("/")
     public String getComplaintPage() {
@@ -23,10 +23,9 @@ public class ComplaintController {
 
     @PostMapping("/")
     public String createComplaint(@RequestParam String place ,@RequestParam String description,Model model) {
-        Complaint complaint = new Complaint(place,description);
-        repository.save(complaint);
-        System.out.println("Complaint id"+complaint.getId());
-
+       Complaint complaint = new Complaint(place,description);
+       complaintService.process(complaint);
+        
         model.addAttribute("trackingId",complaint.getId());
         return "confirm-page";
     }
