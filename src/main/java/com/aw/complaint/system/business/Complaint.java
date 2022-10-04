@@ -14,7 +14,7 @@ public class Complaint {
     private Long id;
     private String place;
     private String description;
-   // private DateTimeFormat dateTimeFormat;
+
 
 
     public Complaint() {
