@@ -1,4 +1,4 @@
-package com.aw.complaint.system;
+package com.aw.complaint.system.Business;
 
 public enum ComplaintCategory {
     ENVIRONMENT,
