@@ -1,4 +1,4 @@
-package com.example.major.project;
+package com.aw.complaint.system;
 
 public enum ComplaintCategory {
     ENVIRONMENT,

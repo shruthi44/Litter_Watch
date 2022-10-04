@@ -1,4 +1,4 @@
-package com.example.major.project;
+package com.aw.complaint.system;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
@@ -49,8 +49,7 @@ public class Complaint {
         this.description = description;
     }
 
-    public Complaint(Long id, String place, String description) {
-        this.id = id;
+    public Complaint(String place, String description) {
         this.place = place;
         this.description = description;
     }

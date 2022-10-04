@@ -1,13 +1,13 @@
-package com.example.major.project;
+package com.aw.complaint.system;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MajorProjectApplication {
+public class ComplaintSystemApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MajorProjectApplication.class, args);
+		SpringApplication.run(ComplaintSystemApplication.class, args);
 	}
 
 }

@@ -1,10 +1,10 @@
-package com.example.major.project;
+package com.aw.complaint.system;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MajorProjectApplicationTests {
+class ComplaintSystemApplicationTests {
 
 	@Test
 	void contextLoads() {

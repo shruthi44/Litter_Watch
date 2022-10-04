@@ -1,4 +1,4 @@
-package com.example.major.project;
+package com.aw.complaint.system;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
