@@ -6,16 +6,11 @@
 </head>
 <body>
 
-<form action="/" method="post">
-   Address: <input name="place"/>
-    Description:<input name="description">
+<form action="#" th:action="@{/create}" th:object="${complaint}" method="post">
+   Address: <input type="text" th:field="*{place}"/>
+    Description:<input type="text" th:field="*{description}"/>
     <input type="submit" value="submit">
 </form>
-
-<!--
-<div th:text="${trackId}"></div>
--->
-
 
 </body>
 </html>
