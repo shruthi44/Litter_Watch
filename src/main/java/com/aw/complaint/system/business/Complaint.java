@@ -1,9 +1,7 @@
 package com.aw.complaint.system.business;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -14,7 +12,23 @@ public class Complaint {
     private Long id;
     private String place;
     private String description;
+    @Column(name="LASTUPDATEDDATETIME")
+    private LocalDateTime currentDateTime;
 
+    private String status ="Submitted";
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public LocalDateTime getCurrentDateTime() {
+        currentDateTime =LocalDateTime.now();
+        return currentDateTime;
+    }
 
 
     public Complaint() {
@@ -47,6 +61,7 @@ public class Complaint {
     public Complaint(String place, String description) {
         this.place = place;
         this.description = description;
+
     }
 
 }

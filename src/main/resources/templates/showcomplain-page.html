@@ -9,6 +9,9 @@
 <span th:if="${complain ne null}">
     <div th:text="${complain.place}"></div>
     <div th:text="${complain.description}"></div>
+    <div th:text="${complain.currentDateTime}"></div>
+    <div th:text="${complain.status}"></div>
+
 </span>
 <span th:if="${complain eq null}">No Complain found </span>
 
