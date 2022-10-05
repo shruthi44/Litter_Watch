@@ -9,6 +9,8 @@
 <form action="/login" method="POST">
     Enter Username: <input th:text="${username}" name="name"/>
     <br>
+    <p>Admin:<input type="checkbox" th:text="${admin}"/></p>
+    <br>
     <input type="submit"/>
     <div>
         <a href="/signup"><i>Click here to Sign Up</i></a>
