@@ -10,7 +10,6 @@ public class Client {
     private Long id;
     private String firstName;
     private String lastName;
-    private String userName;
     private String emailId;
     private boolean admin;
 
@@ -20,10 +19,9 @@ public class Client {
     public Client() {
     }
 
-    public Client(String firstName, String lastName, String userName, String emailId, boolean admin) {
+    public Client(String firstName, String lastName, String emailId, boolean admin) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userName = userName;
         this.emailId = emailId;
         this.admin = admin;
     }
@@ -51,14 +49,6 @@ public class Client {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUsername(String userName) {
-        this.userName = userName;
     }
 
     public String getEmailId() {

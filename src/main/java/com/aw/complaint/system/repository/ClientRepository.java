@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface UserRepository extends JpaRepository<Client, Long> {
+public interface ClientRepository extends JpaRepository<Client, Long> {
 
-    @Query("select u from Client u where u.userName = ?1")
-    List<Client> findByUserName(String name);
+    @Query("select c from Client c where c.emailId = ?1")
+    List<Client> findByEmailId(String emailID);
 }
