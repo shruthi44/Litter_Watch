@@ -15,7 +15,7 @@ public class ComplaintController {
     @Autowired
     ComplaintService complaintService;
 
-    @GetMapping("/")
+    @GetMapping("/complaint-page")
     public String getComplaintPage(Model model) {
         model.addAttribute("complaint",new Complaint());
         return "complaint-page";
@@ -27,7 +27,7 @@ public class ComplaintController {
         model.addAttribute("trackingId",complaint.getId());
         return "confirm-page";
     }
-    @GetMapping("/show")
+    @GetMapping("/confirm-page")
     public String showComplaintById(@RequestParam (name="trackingId", required = false) Long id, Model model) {
         model.addAttribute("complain",complaintService.trackComplaintById(id));
         return "showcomplain-page";

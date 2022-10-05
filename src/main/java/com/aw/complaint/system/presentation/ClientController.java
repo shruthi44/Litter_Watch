@@ -16,17 +16,17 @@ public class ClientController {
     @Autowired
     ClientService clientService;
 
-    @GetMapping("/login")
+    @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("client_emailId",new Client().getEmailId());
         return "homepage";
     }
 
-    @PostMapping("/login")
+    @PostMapping("/")
     public String home(@RequestParam("emailId") String emailId,Model model) {
         clientService.logIn(emailId);
         //model.addAttribute("client-namePost",name2);
-        return "redirect:/";
+        return "redirect:/complaint-page";
     }
 
     @GetMapping("/signup")
@@ -38,7 +38,7 @@ public class ClientController {
     @PostMapping("/signup")
     public String logIn(@ModelAttribute Client client, Model model) {
         clientService.signUp(client);
-        return "redirect:/login";
+        return "redirect:/";
     }
 
 
