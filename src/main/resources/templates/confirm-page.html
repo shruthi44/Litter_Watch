@@ -8,7 +8,9 @@
 
 <div th:text="${trackingId}"></div>
 
-View your complain <a th:href="@{/show(id=${trackingId})}"><div th:text="${trackingId}"></div></a>
+View your complain <a th:href="@{/show(id=${trackingId})}">
+
+    <div th:text="${trackingId}"></div></a>
 <div>
 
     <form action="#" th:action="@{/show}"  method="get">
