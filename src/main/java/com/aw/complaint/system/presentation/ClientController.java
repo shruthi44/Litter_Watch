@@ -18,13 +18,13 @@ public class ClientController {
 
     @GetMapping("/login")
     public String home(Model model) {
-        model.addAttribute("client_name",new Client().getClientName());
+        model.addAttribute("client_emailId",new Client().getEmailId());
         return "homepage";
     }
 
     @PostMapping("/login")
-    public String home(@RequestParam("name") String name,Model model) {
-        clientService.logIn(name);
+    public String home(@RequestParam("emailId") String emailId,Model model) {
+        clientService.logIn(emailId);
         model.addAttribute("Message","You are logged In");
         return "homepage";
     }

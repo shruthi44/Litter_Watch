@@ -22,7 +22,7 @@ public class ClientService {
     }
 
 
-    public Client getUser() {
+    public Client getClient() {
         return client;
     }
 
@@ -31,8 +31,8 @@ public class ClientService {
 
     }
 
-    public void logIn(String name) {
-        List<Client> clientList = clientRepository.findByClientName(name);
+    public void logIn(String emailID) {
+        List<Client> clientList = clientRepository.findByEmailId(emailID);
         if (clientList.size() > 0) {
             client = clientList.get(0);
         }
