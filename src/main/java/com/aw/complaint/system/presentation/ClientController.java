@@ -25,8 +25,8 @@ public class ClientController {
     @PostMapping("/login")
     public String home(@RequestParam("emailId") String emailId,Model model) {
         clientService.logIn(emailId);
-        model.addAttribute("Message","You are logged In");
-        return "homepage";
+        //model.addAttribute("client-namePost",name2);
+        return "redirect:/";
     }
 
     @GetMapping("/signup")
@@ -40,6 +40,7 @@ public class ClientController {
         clientService.signUp(client);
         return "redirect:/login";
     }
+
 
 
 }
