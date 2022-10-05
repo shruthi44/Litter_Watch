@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ComplaintController {
-
-
     @Autowired
     ComplaintService complaintService;
 
@@ -22,7 +20,6 @@ public class ComplaintController {
         model.addAttribute("complaint",new Complaint());
         return "complaint-page";
     }
-
     @PostMapping("/create")
     public String createComplaint(@ModelAttribute Complaint complaint, Model model) {
        complaintService.process(complaint);
@@ -30,8 +27,6 @@ public class ComplaintController {
         model.addAttribute("trackingId",complaint.getId());
         return "confirm-page";
     }
-
-
     @GetMapping("/show")
     public String showComplaintById(@RequestParam (name="trackingId", required = false) Long id, Model model) {
         model.addAttribute("complain",complaintService.trackComplaintById(id));
