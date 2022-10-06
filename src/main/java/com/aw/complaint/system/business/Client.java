@@ -13,6 +13,7 @@ public class Client {
     private String firstName;
     private String lastName;
     private String emailId;
+    private String password;
     private boolean admin;
 
     @OneToMany(cascade = CascadeType.ALL,fetch=FetchType.EAGER,mappedBy = "client")
@@ -21,11 +22,12 @@ public class Client {
     public Client() {
     }
 
-    public Client(String firstName, String lastName, String emailId, boolean admin) {
+    public Client(String firstName, String lastName, String emailId,String password, boolean admin) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailId = emailId;
         this.admin = admin;
+        this.password=password;
     }
 
     public Long getId() {
@@ -66,6 +68,13 @@ public class Client {
 
     public void setAdmin(boolean admin) {
         this.admin = admin;
+    }
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void addComplaint(Complaint complaint) {

@@ -19,15 +19,17 @@ public class ClientController {
     @GetMapping("/login")
     public String home(Model model) {
         Client client_login = new Client();
+
         model.addAttribute("client_emailId",client_login.getEmailId());
+        model.addAttribute("client_password",client_login.getPassword());
         model.addAttribute("client_isAdmin",client_login.isAdmin());
         return "homepage";
     }
 
     @PostMapping("/login")
-    public String home(@RequestParam("emailId") String emailId,Model model) {
+    public String home(@RequestParam("emailId") String emailId,@RequestParam("password") String password,Model model) {
 
-        if(clientService.logIn(emailId)){
+        if(clientService.logIn(emailId,password)){
             return "redirect:/complaint";
         }else {
             return "redirect:/login";

@@ -30,9 +30,10 @@ public class ClientService {
     }
 
 
-    public boolean logIn(String emailID) {
+    public boolean logIn(String emailID,String password) {
         List<Client> clientList = clientRepository.findByEmailId(emailID);
-        if (clientList.size() > 0) {
+        List<Client> clientList1 = clientRepository.findClientByPassword(password);
+        if (clientList.size() > 0 && clientList1.size()>0) {
             client = clientList.get(0);
             return true;
         }

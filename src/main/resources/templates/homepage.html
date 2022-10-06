@@ -7,9 +7,10 @@
 <body>
 
 <form action="/login" method="POST">
-    Enter EmailId: <input th:text="${client_emailId}" name="emailId"/>
+    <p>Enter EmailId: <input th:text="${client_emailId}" name="emailId"/></p>
+   <p> Enter Password: <input th:text="${client_password}" name="password"/></p>
     <br>
-    <p>Admin:<input type="checkbox" th:text="${client_isAdmin}" name="admin"/></p>
+   <!----> <p>Admin:<input type="checkbox" th:text="${client_isAdmin}" name="admin"/></p>
     <br>
     <input type="submit"/>
     <div>
