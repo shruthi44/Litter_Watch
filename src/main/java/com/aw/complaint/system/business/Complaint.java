@@ -2,8 +2,6 @@ package com.aw.complaint.system.business;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-
-
 @Entity
 public class Complaint {
 
@@ -12,22 +10,33 @@ public class Complaint {
     private Long id;
     private String place;
     private String description;
-    @Column(name="LASTUPDATEDDATETIME")
-    private LocalDateTime currentDateTime;
+    private LocalDateTime registeredDateTime;
 
-    private String status ="Submitted";
+    private Status status=Status.SUBMITTED;
 
-    public String getStatus() {
+   @ManyToOne
+   private Client client;
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
     public LocalDateTime getCurrentDateTime() {
-        currentDateTime =LocalDateTime.now();
-        return currentDateTime;
+       // registeredDateTime =LocalDateTime.now();
+        return registeredDateTime;
     }
 
 
@@ -61,6 +70,7 @@ public class Complaint {
     public Complaint(String place, String description) {
         this.place = place;
         this.description = description;
+        //this.registeredDateTime=LocalDateTime.now();
 
     }
 

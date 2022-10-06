@@ -1,5 +1,6 @@
 package com.aw.complaint.system.presentation;
 
+import com.aw.complaint.system.business.ClientService;
 import com.aw.complaint.system.business.Complaint;
 import com.aw.complaint.system.business.ComplaintService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ public class ComplaintController {
     @Autowired
     ComplaintService complaintService;
 
+    @Autowired
+    ClientService clientService;
+
     @GetMapping("/")
     public String getComplaintPage(Model model) {
         model.addAttribute("complaint",new Complaint());
@@ -22,7 +26,7 @@ public class ComplaintController {
     }
     @PostMapping("/create")
     public String createComplaint(@ModelAttribute Complaint complaint, Model model) {
-       complaintService.process(complaint);
+       clientService.createComplaint(complaint);
 
         model.addAttribute("trackingId",complaint.getId());
         return "confirm-page";

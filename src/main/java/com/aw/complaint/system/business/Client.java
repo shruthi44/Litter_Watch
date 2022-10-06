@@ -1,6 +1,8 @@
 package com.aw.complaint.system.business;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Client {
@@ -13,8 +15,8 @@ public class Client {
     private String emailId;
     private boolean admin;
 
-    /*@OneToMany(cascade = CascadeType.ALL)
-    private List<Complaint> complaints = new ArrayList<>();*/
+    @OneToMany(cascade = CascadeType.ALL,fetch=FetchType.EAGER,mappedBy = "client")
+    private List<Complaint> complaints = new ArrayList<>();
 
     public Client() {
     }
@@ -25,7 +27,6 @@ public class Client {
         this.emailId = emailId;
         this.admin = admin;
     }
-
 
     public Long getId() {
         return id;
@@ -65,5 +66,10 @@ public class Client {
 
     public void setAdmin(boolean admin) {
         this.admin = admin;
+    }
+
+    public void addComplaint(Complaint complaint) {
+        complaints.add(complaint);
+        complaint.setClient(this);
     }
 }

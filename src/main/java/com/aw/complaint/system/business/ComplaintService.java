@@ -13,9 +13,6 @@ public class ComplaintService {
     ComplaintRepository complaintRepository;
 
 
-    public void process(Complaint complaint) {
-        complaintRepository.save(complaint);
-    }
 
     public Complaint trackComplaintById(Long id){
     Optional<Complaint> optionalComplaint=complaintRepository.findById(id);
