@@ -19,7 +19,7 @@ public class ComplaintController {
     @Autowired
     ClientService clientService;
 
-    @GetMapping("/")
+    @GetMapping("/complaint")
     public String getComplaintPage(Model model) {
         model.addAttribute("complaint",new Complaint());
         return "complaint-page";

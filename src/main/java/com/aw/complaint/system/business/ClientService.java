@@ -30,11 +30,13 @@ public class ClientService {
     }
 
 
-    public void logIn(String emailID) {
+    public boolean logIn(String emailID) {
         List<Client> clientList = clientRepository.findByEmailId(emailID);
         if (clientList.size() > 0) {
             client = clientList.get(0);
+            return true;
         }
+        return false;
     }
 
     public void createComplaint(Complaint complaint) {

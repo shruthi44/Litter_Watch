@@ -10,13 +10,18 @@
 
 View your complain <a th:href="@{/show(trackingId=${trackingId})}">
     <div th:text="${trackingId}"></div></a>
-<div>
 
+
+<div>
     <form action="#" th:action="@{/show}"  method="get">
         Search Complain: <input type="text" name="trackingId"/>
         <input type="submit" value="submit">
     </form>
 </div>
+
+
+
+
 
 </body>
 </html>

@@ -35,10 +35,9 @@ public class Complaint {
         this.status = status;
     }
 
-    /*public LocalDateTime getCurrentDateTime() {
-       registeredDateTime =LocalDateTime.now();
+    public LocalDateTime getRegisteredDateTime() {
         return registeredDateTime;
-    }*/
+    }
 
     public void setRegisteredDateTime(LocalDateTime registeredDateTime) {
         this.registeredDateTime = registeredDateTime;

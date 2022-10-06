@@ -26,14 +26,13 @@ public class ClientController {
 
     @PostMapping("/login")
     public String home(@RequestParam("emailId") String emailId,Model model) {
-        clientService.logIn(emailId);
-       /* if(admin== true){
 
+        if(clientService.logIn(emailId)){
+            return "redirect:/complaint";
         }else {
-
-        }*/
+            return "redirect:/login";
+        }
         //model.addAttribute("client-namePost",name2);
-        return "redirect:/";
     }
 
     @GetMapping("/signup")
