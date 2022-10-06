@@ -12,6 +12,7 @@ public class Complaint {
     private String description;
     private LocalDateTime registeredDateTime;
 
+    @Enumerated(EnumType.STRING)
     private Status status=Status.SUBMITTED;
 
    @ManyToOne
@@ -34,11 +35,14 @@ public class Complaint {
         this.status = status;
     }
 
-    public LocalDateTime getCurrentDateTime() {
-       // registeredDateTime =LocalDateTime.now();
+    /*public LocalDateTime getCurrentDateTime() {
+       registeredDateTime =LocalDateTime.now();
         return registeredDateTime;
-    }
+    }*/
 
+    public void setRegisteredDateTime(LocalDateTime registeredDateTime) {
+        this.registeredDateTime = registeredDateTime;
+    }
 
     public Complaint() {
     }

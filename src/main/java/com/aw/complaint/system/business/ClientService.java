@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -37,6 +38,7 @@ public class ClientService {
     }
 
     public void createComplaint(Complaint complaint) {
+        complaint.setRegisteredDateTime(LocalDateTime.now());
         client.addComplaint(complaint);
         clientRepository.save(client);
     }
