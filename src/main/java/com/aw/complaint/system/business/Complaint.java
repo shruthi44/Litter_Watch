@@ -2,6 +2,8 @@ package com.aw.complaint.system.business;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 @Entity
 public class Complaint {
 
@@ -15,6 +17,8 @@ public class Complaint {
     @Enumerated(EnumType.STRING)
     private Status status=Status.SUBMITTED;
 
+    @Transient
+    private String formattedDateTime;
    @ManyToOne
    private Client client;
 
@@ -77,4 +81,8 @@ public class Complaint {
 
     }
 
+    public String getFormattedDateTime() {
+        DateTimeFormatter formatType = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        return registeredDateTime.format(formatType);
+    }
 }
