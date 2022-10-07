@@ -4,6 +4,8 @@ package com.aw.complaint.system.business;
 import com.aw.complaint.system.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.context.annotation.SessionScope;
 
 import java.time.LocalDateTime;
@@ -14,6 +16,10 @@ import java.util.List;
 public class ClientService {
     @Autowired
     ClientRepository clientRepository;
+
+    @Autowired
+    ComplaintService complaintService;
+
 
     private Client client;
     public ClientService() {
@@ -28,8 +34,6 @@ public class ClientService {
         client = clientRepository.save(clientInfo);
 
     }
-
-
     public boolean logIn(String emailID) {
         List<Client> clientList = clientRepository.findByEmailId(emailID);
         if (clientList.size() > 0) {
@@ -44,6 +48,9 @@ public class ClientService {
         client.addComplaint(complaint);
         clientRepository.save(client);
     }
+
+
+
 
 
 

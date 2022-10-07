@@ -2,6 +2,8 @@ package com.aw.complaint.system.presentation;
 
 import com.aw.complaint.system.business.Client;
 import com.aw.complaint.system.business.ClientService;
+import com.aw.complaint.system.business.Complaint;
+import com.aw.complaint.system.business.ComplaintService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,11 +12,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class ClientController {
 
     @Autowired
     ClientService clientService;
+    @Autowired
+    ComplaintService complaintService;
 
     @GetMapping("/login")
     public String home(Model model) {
@@ -26,13 +32,11 @@ public class ClientController {
 
     @PostMapping("/login")
     public String home(@RequestParam("emailId") String emailId,Model model) {
-
         if(clientService.logIn(emailId)){
             return "redirect:/complaint";
         }else {
             return "redirect:/login";
         }
-        //model.addAttribute("client-namePost",name2);
     }
 
     @GetMapping("/signup")

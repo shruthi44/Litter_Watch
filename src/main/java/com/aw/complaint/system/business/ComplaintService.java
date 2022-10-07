@@ -4,6 +4,8 @@ import com.aw.complaint.system.repository.ComplaintRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -12,8 +14,6 @@ public class ComplaintService {
     @Autowired
     ComplaintRepository complaintRepository;
 
-
-
     public Complaint trackComplaintById(Long id){
     Optional<Complaint> optionalComplaint=complaintRepository.findById(id);
     if (optionalComplaint.isPresent()){
@@ -21,4 +21,12 @@ public class ComplaintService {
     }
          return null;
     }
+
+    public List<Complaint> viewComplaints(String emailId){
+        List<Complaint> clientComplaintList= new ArrayList<>();
+        return   clientComplaintList= complaintRepository.findAllByClientNativeQuery(emailId);
+    }
+
+
+
 }
