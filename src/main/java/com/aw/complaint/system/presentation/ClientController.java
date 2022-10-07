@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class ClientController {
 
@@ -26,10 +28,10 @@ public class ClientController {
 
     @PostMapping("/login")
     public String home(@RequestParam("emailId") String emailId,Model model) {
-
         if(clientService.logIn(emailId)){
             return "redirect:/complaint";
-        }else {
+        }
+        else {
             return "redirect:/login";
         }
         //model.addAttribute("client-namePost",name2);
@@ -47,6 +49,10 @@ public class ClientController {
         return "redirect:/login";
     }
 
-
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request) {
+        clientService.logOut(request);
+        return "redirect:/login";
+    }
 
 }

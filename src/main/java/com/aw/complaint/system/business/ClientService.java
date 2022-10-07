@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -44,10 +45,8 @@ public class ClientService {
         client.addComplaint(complaint);
         clientRepository.save(client);
     }
-
-
-
-   /* public void logOut(String emailID){
+    public void logOut(HttpServletRequest request){
+        request.getSession().invalidate();
     }
-*/
+
 }
