@@ -59,5 +59,13 @@ public class ComplaintController {
         return "client-allcomplaints";
     }
 
+
+    @GetMapping("/viewall")
+    public String viewAllComplaints(Model model){
+        List<Complaint> allComplaintList =complaintService.viewAllComplaints();
+        model.addAttribute("viewallcomplaints",allComplaintList);
+        return "view-all-complaints";
+    }
+
 }
 

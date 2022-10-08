@@ -43,6 +43,8 @@
                 <br/>
             </div>
 
+
+
             <div th:if="${client.admin eq true}">
                 <form action="#" th:action="@{/confirm-page}" method="post">
                     <input type="hidden" th:field="${client.id}"/>
@@ -55,10 +57,10 @@
                 </form>
             </div>
 
+            <div th:if="${complaint eq null}">No Complain found </div>
 
         </div>
     </div>
-    <div th:if="${complaint eq null}">No Complain found </div>
 
 </div>
 </body>

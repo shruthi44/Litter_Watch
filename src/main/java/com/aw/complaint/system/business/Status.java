@@ -4,5 +4,5 @@ public enum Status {
 
     SUBMITTED,
     IN_PROGRESS,
-    SOLVED
+    COMPLETED
 }

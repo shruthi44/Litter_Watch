@@ -21,7 +21,6 @@ public class ClientController {
     @GetMapping("/login")
     public String login(Model model) {
         Client client_login = new Client();
-
         model.addAttribute("client_emailId",client_login.getEmailId());
         model.addAttribute("client_password",client_login.getPassword());
         model.addAttribute("client_isAdmin",client_login.isAdmin());
@@ -30,13 +29,12 @@ public class ClientController {
 
     @PostMapping("/login")
     public String login(@RequestParam("emailId") String emailId,@RequestParam("password") String password,Model model) {
-
         if(clientService.logIn(emailId,password)){
-            return "redirect:/complaint-page";
+            model.addAttribute("client",clientService.getClient());
+            return "welcome";
         }else {
             return "redirect:/login";
         }
-        //model.addAttribute("client-namePost",name2);
     }
 
     @GetMapping("/signup")
@@ -48,7 +46,8 @@ public class ClientController {
     @PostMapping("/signup")
     public String signup(@ModelAttribute Client client, Model model) {
         clientService.signUp(client);
-        return "redirect:/complaint-page";
+        model.addAttribute("client",clientService.getClient());
+        return "welcome";
     }
 
     @GetMapping("/logout")

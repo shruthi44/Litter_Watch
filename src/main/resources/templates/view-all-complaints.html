@@ -1,16 +1,61 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Litter Watch | Complaint Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+table, th, td,tr {
+  border:1px solid black;
+}
+</style>
 </head>
-<body>
-<th:block th:each="i : ${viewallcomplaints}">
-  <li th:text="${i.id}"></li>
-  <li th:text="${i.place}"></li>
-  <li th:text="${i.description}"></li>
-  <li th:text="${i.registeredDateTime}"></li>
-  <li th:text="${i.status}"></li>
-</th:block>
+<body id="page4">
+<div id="main">
+    <!-- header -->
+    <div id="header">
+        <ul class="site-nav nav">
+            <li><a href="/" class="act">Home</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/articles">Articles</a></li>
+            <!--
+                        <li><a href="/complaint-page">Complaint Form</a></li>
+            -->
+            <li class="nav-link disabled" ><a href="/signup">Sign up</a></li>
+            <li class="nav-link disabled"><a href="/login">Log in</a></li>
+            <li><a href="/logout">Log out</a></li>
+        </ul>
+
+    </div>
+
+    <div class="logo"><a href="#"><img src="image8.jpg" height="500px" width="1000px" alt="" /></a></div>
+    <!-- content -->
+    <div id="content">
+        <table>
+            <tr>
+                <th>Tracking ID</th>
+                <th>Place</th>
+                <th>Description</th>
+                <th>Registered Date and Time</th>
+                <th>Status</th>
+            </tr>
+            <tr th:each="i : ${viewallcomplaints}">
+                <td th:text="${i.id}"></td>
+                <td th:text="${i.place}"></td>
+                <td th:text="${i.description}"></td>
+                <td th:text="${i.formattedDateTime}"></td>
+                <td th:text="${i.status}"></td>
+            </tr>
+        </table>
+    </div>
+    <!-- footer -->
+    <div id="footer">
+        <div class="indent">
+            <div class="fleft">Copyright - Litter Watch 2022</div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

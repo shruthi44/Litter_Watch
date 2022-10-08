@@ -38,4 +38,8 @@ public class ComplaintService {
         complaintRepository.save(complaint);
     }
 
+    public List<Complaint> viewAllComplaints() {
+        List<Complaint> clientComplaintList= new ArrayList<>();
+        return clientComplaintList= complaintRepository.findAll();
+    }
 }
