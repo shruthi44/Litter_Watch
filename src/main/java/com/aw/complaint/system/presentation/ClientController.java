@@ -2,8 +2,6 @@ package com.aw.complaint.system.presentation;
 
 import com.aw.complaint.system.business.Client;
 import com.aw.complaint.system.business.ClientService;
-import com.aw.complaint.system.business.Complaint;
-import com.aw.complaint.system.business.ComplaintService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,41 +10,51 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class ClientController {
 
     @Autowired
     ClientService clientService;
-    @Autowired
-    ComplaintService complaintService;
 
     @GetMapping("/login")
-    public String home(Model model) {
+    public String login(Model model) {
         Client client_login = new Client();
+
         model.addAttribute("client_emailId",client_login.getEmailId());
+        model.addAttribute("client_password",client_login.getPassword());
         model.addAttribute("client_isAdmin",client_login.isAdmin());
-        return "homepage";
+        return "login";
     }
 
     @PostMapping("/login")
-    public String home(@RequestParam("emailId") String emailId,Model model) {
-        if(clientService.logIn(emailId)){
-            return "redirect:/complaint";
+    public String login(@RequestParam("emailId") String emailId,@RequestParam("password") String password,Model model) {
+
+        if(clientService.logIn(emailId,password)){
+            return "redirect:/complaint-page";
         }else {
             return "redirect:/login";
         }
+        //model.addAttribute("client-namePost",name2);
     }
+
     @GetMapping("/signup")
     public String signUp(Model model) {
         model.addAttribute("client",new Client());
         return "signuppage";
     }
+
     @PostMapping("/signup")
-    public String logIn(@ModelAttribute Client client, Model model) {
+    public String signup(@ModelAttribute Client client, Model model) {
         clientService.signUp(client);
-        return "redirect:/login";
+        return "redirect:/complaint-page";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request) {
+        clientService.logOut(request);
+        return "redirect:/";
     }
 
 

@@ -1,23 +1,60 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>welcome</title>
+    <title>Litter Watch | Confirmation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+
 </head>
-<body>
+<body id="page7">
+<div id="main">
+    <!-- header -->
+    <div id="header">
+        <ul class="site-nav nav">
+            <li><a href="/" class="act">Home</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/articles">Articles</a></li>
+<!--
+            <li><a href="/complaint-page">Complaint Form</a></li>
+            <li class="nav-link disabled"><a href="/signup">Sign up</a></li>
+            <li><a href="/login">Log in</a></li>
+-->
+            <li><a href="/logout">Log out</a></li>
 
-<div th:text="${trackingId}"></div>
+        </ul>
 
-View your complain <a th:href="@{/show(trackingId=${trackingId})}">
-    <div th:text="${trackingId}"></div></a>
+    </div>
+
+    <div class="logo"><a href="#"><img src="image18.jpg" height="500px" width="1000px" alt="" /></a></div>
+    <!-- content -->
+    <div id="content">
+        <div class="indent1">
+            <h2>Thank you for taking the initiation......</h2>
+
+            Your tracking ID is: <span th:text="${trackingId}"></span>
+
+            <div> <a th:href="@{/confirm-page(trackingId=${trackingId})}">Click here to view your complaint</a> </div>
+
+             <!--<div th:text="${trackingId}"></div>-->
+ <!--           <div>
+
+                <form action="#" th:action="@{/confirm-page}"  method="get">
+                    Enter tracking ID to check Complaint status: <input type="text" name="trackingId"/>
+                    <input type="submit" value="submit">
+                </form>
+            </div>-->
 
 
-<div>
-    <form action="#" th:action="@{/show}"  method="get">
-        Search Complain: <input type="text" name="trackingId"/>
-        <input type="submit" value="submit">
-    </form>
+        </div>
+    </div>
+    <!-- footer -->
+    <div id="footer">
+        <div class="indent">
+            <div class="fleft">Copyright - Litter Watch 2022</div>
+        </div>
+    </div>
 </div>
+
 
 
 </body>
