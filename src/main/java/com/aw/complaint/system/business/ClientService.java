@@ -2,6 +2,7 @@ package com.aw.complaint.system.business;
 
 
 import com.aw.complaint.system.repository.ClientRepository;
+import com.aw.complaint.system.repository.ComplaintRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -16,6 +17,9 @@ import java.util.List;
 public class ClientService {
     @Autowired
     ClientRepository clientRepository;
+
+    @Autowired
+    ComplaintRepository complaintRepository;
 
     @Autowired
     ComplaintService complaintService;
@@ -43,16 +47,12 @@ public class ClientService {
         return false;
     }
 
-    public void createComplaint(Complaint complaint) {
+    public long createComplaint(Complaint complaint) {
         complaint.setRegisteredDateTime(LocalDateTime.now());
         client.addComplaint(complaint);
-        clientRepository.save(client);
+        client = clientRepository.save(client);
+        return client.getLastComplaint();
     }
-
-
-
-
-
 
    /* public void logOut(String emailID){
     }

@@ -71,4 +71,8 @@ public class Client {
         complaints.add(complaint);
         complaint.setClient(this);
     }
+
+    public long getLastComplaint() {
+        return complaints.get(complaints.size()-1).getId();
+    }
 }

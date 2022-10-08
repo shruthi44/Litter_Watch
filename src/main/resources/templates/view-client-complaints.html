@@ -10,11 +10,11 @@
 <body>
 
 <th:block th:each="i : ${viewcomplaints}">
-    <li th:text="${i.id}"></li>
-    <li th:text="${i.place}"></li>
-    <li th:text="${i.description}"></li>
-    <li th:text="${i.registeredDateTime}"></li>
-    <li th:text="${i.status}"></li>
+    <td th:text="${i.id}"></td>
+    <td th:text="${i.place}"></td>
+    <td th:text="${i.description}"></td>
+    <td th:text="${i.registeredDateTime}"></td>
+    <td th:text="${i.status}"></td>
 </th:block>
 
 

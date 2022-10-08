@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block th:each="i : ${viewallcomplaints}">
+  <li th:text="${i.id}"></li>
+  <li th:text="${i.place}"></li>
+  <li th:text="${i.description}"></li>
+  <li th:text="${i.registeredDateTime}"></li>
+  <li th:text="${i.status}"></li>
+</th:block>
+</body>
+</html>

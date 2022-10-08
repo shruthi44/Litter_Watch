@@ -27,6 +27,8 @@ public class ComplaintService {
         return   clientComplaintList= complaintRepository.findAllByClientNativeQuery(emailId);
     }
 
-
-
+    public List<Complaint> viewAllComplaints() {
+        List<Complaint> clientComplaintList= new ArrayList<>();
+        return clientComplaintList= complaintRepository.findAll();
+    }
 }

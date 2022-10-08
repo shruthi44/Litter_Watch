@@ -73,8 +73,6 @@ public class Complaint {
     public Complaint(String place, String description) {
         this.place = place;
         this.description = description;
-        //this.registeredDateTime=LocalDateTime.now();
-
     }
 
 }

@@ -38,13 +38,11 @@ public class ClientController {
             return "redirect:/login";
         }
     }
-
     @GetMapping("/signup")
     public String signUp(Model model) {
         model.addAttribute("client",new Client());
         return "signuppage";
     }
-
     @PostMapping("/signup")
     public String logIn(@ModelAttribute Client client, Model model) {
         clientService.signUp(client);

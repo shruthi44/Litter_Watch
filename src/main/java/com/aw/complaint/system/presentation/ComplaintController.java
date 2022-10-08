@@ -28,14 +28,13 @@ public class ComplaintController {
     }
     @PostMapping("/create")
     public String createComplaint(@ModelAttribute Complaint complaint, Model model) {
-        clientService.createComplaint(complaint);
-        model.addAttribute("trackingId",complaint.getId());
+        long trackingId= clientService.createComplaint(complaint);
+        model.addAttribute("trackingId",trackingId);
         return "confirm-page";
     }
     @GetMapping("/show")
-    public String showComplaintById(@RequestParam (name="trackingId", required = false) Long id, Model model) {
+    public String showComplaintById(@RequestParam (name="trackingId") Long id, Model model) {
         model.addAttribute("complain",complaintService.trackComplaintById(id));
-
         return "showcomplain-page";
     }
     @GetMapping("/view")
@@ -43,6 +42,13 @@ public class ComplaintController {
         List<Complaint> complaintList =complaintService.viewComplaints(clientService.getClient().getEmailId());
         model.addAttribute("viewcomplaints",complaintList);
         return "view-client-complaints";
+    }
+
+    @GetMapping("/viewall")
+    public String viewAllComplaints(Model model){
+        List<Complaint> allComplaintList =complaintService.viewAllComplaints();
+        model.addAttribute("viewallcomplaints",allComplaintList);
+        return "view-all-complaints";
     }
 
 
