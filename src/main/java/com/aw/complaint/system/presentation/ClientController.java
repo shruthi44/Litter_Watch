@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class ClientController {
 
@@ -17,20 +19,20 @@ public class ClientController {
     ClientService clientService;
 
     @GetMapping("/login")
-    public String home(Model model) {
+    public String login(Model model) {
         Client client_login = new Client();
 
         model.addAttribute("client_emailId",client_login.getEmailId());
         model.addAttribute("client_password",client_login.getPassword());
         model.addAttribute("client_isAdmin",client_login.isAdmin());
-        return "homepage";
+        return "login";
     }
 
     @PostMapping("/login")
-    public String home(@RequestParam("emailId") String emailId,@RequestParam("password") String password,Model model) {
+    public String login(@RequestParam("emailId") String emailId,@RequestParam("password") String password,Model model) {
 
         if(clientService.logIn(emailId,password)){
-            return "redirect:/complaint";
+            return "redirect:/complaint-page";
         }else {
             return "redirect:/login";
         }
@@ -44,9 +46,15 @@ public class ClientController {
     }
 
     @PostMapping("/signup")
-    public String logIn(@ModelAttribute Client client, Model model) {
+    public String signup(@ModelAttribute Client client, Model model) {
         clientService.signUp(client);
-        return "redirect:/login";
+        return "redirect:/complaint-page";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request) {
+        clientService.logOut(request);
+        return "redirect:/";
     }
 
 

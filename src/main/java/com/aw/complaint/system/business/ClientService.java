@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -16,20 +17,22 @@ public class ClientService {
     ClientRepository clientRepository;
 
     private Client client;
+
     public ClientService() {
     }
     public ClientService(Client client) {
         this.client = client;
     }
+
+
     public Client getClient() {
         return client;
     }
-    public void signUp(Client clientInfo) {
-        client = clientRepository.save(clientInfo);
+
+    public void signUp(Client clientObj) {
+        client = clientRepository.save(clientObj);
 
     }
-
-
     public boolean logIn(String emailID,String password) {
         List<Client> clientList = clientRepository.findByEmailId(emailID);
         List<Client> clientList1 = clientRepository.findClientByPassword(password);
@@ -46,7 +49,9 @@ public class ClientService {
         clientRepository.save(client);
     }
 
-
+    public void logOut(HttpServletRequest request){
+        request.getSession().invalidate();
+    }
 
    /* public void logOut(String emailID){
     }
