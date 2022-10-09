@@ -9,6 +9,7 @@ import org.springframework.web.context.annotation.SessionScope;
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @SessionScope
@@ -33,10 +34,11 @@ public class ClientService {
         client = clientRepository.save(clientObj);
 
     }
-    public boolean logIn(String emailID,String password) {
-        List<Client> clientList = clientRepository.findByEmailId(emailID);
-        List<Client> clientList1 = clientRepository.findClientByPassword(password);
-        if (clientList.size() > 0 && clientList1.size()>0) {
+    public boolean logIn(String emailId,String password) {
+        //List<Client> clientList = clientRepository.findByEmailId(emailID);
+        //List<Client> clientList1 = clientRepository.findClientByPassword(password);
+        List<Client> clientList = clientRepository.findByEmailIdAndPassword(emailId,password);
+        if (Objects.nonNull(clientList) && clientList.size() > 0) {
             client = clientList.get(0);
             return true;
         }
