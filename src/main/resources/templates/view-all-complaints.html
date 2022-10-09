@@ -40,6 +40,7 @@ table, th, td,tr {
                 <th>Description</th>
                 <th>Registered Date and Time</th>
                 <th>Status</th>
+                <th>Update Status</th>
             </tr>
             <tr th:each="i : ${viewallcomplaints}">
                 <td th:text="${i.id}"></td>
@@ -47,6 +48,7 @@ table, th, td,tr {
                 <td th:text="${i.description}"></td>
                 <td th:text="${i.formattedDateTime}"></td>
                 <td th:text="${i.status}"></td>
+                <td><a th:href="@{/confirm-page(trackingId=${i.id})}">Edit</a></td>
             </tr>
         </table>
     </div>

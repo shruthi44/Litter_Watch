@@ -48,7 +48,7 @@ public class ComplaintController {
         complaintService.updateComplaint(id,status);
         model.addAttribute("complaint",complaintService.trackComplaintById(id));
         model.addAttribute("client",clientService.getClient());
-        model.addAttribute("trackingId",id);
+        model.addAttribute("statusOptions", Status.values());
         return "edit-complaint";
     }
 

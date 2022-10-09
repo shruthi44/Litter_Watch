@@ -33,12 +33,12 @@
     <h2 th:text="'Welcome, ' + ${client.firstName} + ' ' + ${client.lastName}+'.....'"></h2>
 
     <div th:if="${client.admin eq true}" >
-      <a href="/viewall"><button>View Entries</button></a>
+      <p><b>Click here to change status for all submitted complaints</b> <a href="/viewall"><button>View All</button></a>
     </div>
 
-    <div th:if="${client.admin ne true}" >
+    <div>
 
-      <p><b>Click here to see your previous complaints</b>  <a href="/view"><button>View all complaints</button></a></p>
+      <p><b>Click here to see your previous complaints</b>  <a href="/view"><button>View all</button></a></p>
 
       <p><b>Click here to make a new complaint</b>  <a href="/complaint-page"><button>Complaint Form</button></a></p>
 
