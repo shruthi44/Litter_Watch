@@ -17,8 +17,9 @@
 <!--
             <li><a href="/complaint-page">Complaint Form</a></li>
 -->
-            <li><a href="/signup">Sign up</a></li>
-            <li><a href="/login">Log in</a></li>
+            <li th:if="${client eq null}"><a href="/signup">Sign up</a></li>
+            <li th:if="${client eq null}"><a href="/login">Log in</a></li>
+            <li th:if="${client ne null}"><a href="/logout">Log out</a></li>
 
         </ul>
 

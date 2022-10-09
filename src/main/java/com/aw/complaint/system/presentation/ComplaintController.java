@@ -24,11 +24,13 @@ public class ComplaintController {
 
     @GetMapping("/complaint-page")
     public String getComplaintPage(Model model) {
+        model.addAttribute("client",clientService.getClient());
         model.addAttribute("complaint",new Complaint());
         return "complaint-page";
     }
     @PostMapping("/submitted")
     public String createComplaint(@ModelAttribute Complaint complaint, Model model) {
+        model.addAttribute("client",clientService.getClient());
         complaint.setClient(clientService.getClient());
         complaintService.createComplaint(complaint);
         model.addAttribute("trackingId",complaint.getId());
@@ -45,12 +47,14 @@ public class ComplaintController {
     }
     @PostMapping("/confirm-page")
     public String updateComplaint(@RequestParam Long id,@RequestParam (name="selectedStatus", required = true) String status, Model model) {
+        model.addAttribute("client",clientService.getClient());
         complaintService.updateComplaint(id,status);
         return "redirect:/viewall";
     }
 
     @GetMapping("/view")
     public String viewComplaints(Model model){
+        model.addAttribute("client",clientService.getClient());
         List<Complaint> complaintList =complaintService.viewComplaints(clientService.getClient().getEmailId());
         model.addAttribute("viewcomplaints",complaintList);
         return "client-allcomplaints";
@@ -59,6 +63,7 @@ public class ComplaintController {
 
     @GetMapping("/viewall")
     public String viewAllComplaints(Model model){
+        model.addAttribute("client",clientService.getClient());
         List<Complaint> allComplaintList =complaintService.viewAllComplaints();
         model.addAttribute("viewallcomplaints",allComplaintList);
         return "view-all-complaints";

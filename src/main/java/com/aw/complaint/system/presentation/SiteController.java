@@ -1,33 +1,44 @@
 package com.aw.complaint.system.presentation;
 
+import com.aw.complaint.system.business.ClientService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class SiteController {
 
+    @Autowired
+    ClientService clientService;
+
     @GetMapping("/about-us")
-    public String aboutUs() {
+    public String aboutUs(Model model) {
+        model.addAttribute("client",clientService.getClient());
         return "about-us";
     }
 
     @GetMapping("/articles")
-    public String articles() {
+    public String articles(Model model) {
+        model.addAttribute("client",clientService.getClient());
         return "articles";
     }
 
     @GetMapping("/sitemap")
-    public String sitemap() {
+    public String sitemap(Model model) {
+        model.addAttribute("client",clientService.getClient());
         return "sitemap";
     }
 
     @GetMapping("/testpage")
-    public String testpage() {
+    public String testpage(Model model) {
+        model.addAttribute("client",clientService.getClient());
         return "testpage";
     }
 
     @GetMapping("/")
-    public String homepage() {
+    public String homepage(Model model) {
+        model.addAttribute("client",clientService.getClient());
         return "homepage";
     }
 }
