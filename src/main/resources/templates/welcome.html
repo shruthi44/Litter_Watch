@@ -19,8 +19,8 @@
       <!--
                   <li><a href="/complaint-page">Complaint Form</a></li>
       -->
-      <li class="nav-link disabled"><a href="/signup">Sign up</a></li>
-      <li class="nav-link disabled"><a href="/login">Log in</a></li>
+      <li class="nav-link disabled" style="opacity: 0.0"><a href="/signup">Sign up</a></li>
+      <li class="nav-link disabled" style="opacity: 0.0"><a href="/login">Log in</a></li>
       <li><a href="/logout">Log out</a></li>
     </ul>
 
@@ -29,15 +29,18 @@
   <div class="logo"><a href="#"><img src="image8.jpg" height="500px" width="1000px" alt="" /></a></div>
   <!-- content -->
   <div id="content">
+
+    <h2 th:text="'Welcome, ' + ${client.firstName} + ' ' + ${client.lastName}+'.....'"></h2>
+
     <div th:if="${client.admin eq true}" >
       <a href="/viewall"><button>View Entries</button></a>
     </div>
 
     <div th:if="${client.admin ne true}" >
 
-      <h3>Click here to see your previous complaints  </h3><a href="/view"><button>View all complaints</button></a>
+      <p><b>Click here to see your previous complaints</b>  <a href="/view"><button>View all complaints</button></a></p>
 
-      <h3>Click here to make a new complaint  </h3><a href="/complaint-page"><button>Complaint Form</button></a>
+      <p><b>Click here to make a new complaint</b>  <a href="/complaint-page"><button>Complaint Form</button></a></p>
 
     </div>
 

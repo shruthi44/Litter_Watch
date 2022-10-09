@@ -85,7 +85,7 @@ h3 { font-size:1em; color:#89b700; line-height:1.5em; margin-bottom:15px;}
 /*content*/
 #content { background:url(static/cont-bg.gif) no-repeat left top; min-height:566px; height:auto!important; height:566px;}
 #content .indent { padding-bottom:20px;}
-#content .indent1 { padding:30px 20px 98px 308px;}
+#content .indent1 { padding:30px 20px 98px 100px;}
 
 /*footer*/
 #footer { height:60px; margin-top:-60px; position:relative; color:#414141;}
