@@ -44,12 +44,9 @@ public class ComplaintController {
         return "edit-complaint";
     }
     @PostMapping("/confirm-page")
-    public String updateComplaint(@RequestParam Long id,@RequestParam (name="selectedStaus", required = true) String status, Model model) {
+    public String updateComplaint(@RequestParam Long id,@RequestParam (name="selectedStatus", required = true) String status, Model model) {
         complaintService.updateComplaint(id,status);
-        model.addAttribute("complaint",complaintService.trackComplaintById(id));
-        model.addAttribute("client",clientService.getClient());
-        model.addAttribute("statusOptions", Status.values());
-        return "edit-complaint";
+        return "redirect:/viewall";
     }
 
     @GetMapping("/view")

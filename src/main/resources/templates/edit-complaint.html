@@ -47,9 +47,9 @@
 
             <div th:if="${client ne null && client.admin eq true}">
                 <form action="#" th:action="@{/confirm-page}" method="post">
-                    <input type="hidden" th:field="${client.id}"/>
+                    <input type="hidden" th:field="${complaint.id}"/>
                     Change Status
-                    <select class="form-control" name="selectedStaus">
+                    <select class="form-control" name="selectedStatus">
                         <option value="0">select option</option>
                         <option th:each="option : ${statusOptions}" th:value="${option}" th:text="${option}"></option>
                     </select>
