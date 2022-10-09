@@ -38,7 +38,7 @@ public class ComplaintController {
 
     @GetMapping("/confirm-page")
     public String showComplaintById(@RequestParam (name="trackingId", required = false) Long id, Model model) {
-        model.addAttribute("complain",complaintService.trackComplaintById(id));
+        model.addAttribute("complaint",complaintService.trackComplaintById(id));
         model.addAttribute("client",clientService.getClient());
         model.addAttribute("statusOptions", Status.values());
         return "edit-complaint";
@@ -46,7 +46,7 @@ public class ComplaintController {
     @PostMapping("/confirm-page")
     public String updateComplaint(@RequestParam Long id,@RequestParam (name="selectedStaus", required = true) String status, Model model) {
         complaintService.updateComplaint(id,status);
-        model.addAttribute("complain",complaintService.trackComplaintById(id));
+        model.addAttribute("complaint",complaintService.trackComplaintById(id));
         model.addAttribute("client",clientService.getClient());
         model.addAttribute("trackingId",id);
         return "edit-complaint";
