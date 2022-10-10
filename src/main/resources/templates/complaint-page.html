@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Litter Watch | Complaint Form</title>
+    <title>Litter Watch | Report</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="style.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -30,8 +30,8 @@
     <!-- content -->
     <div id="content">
         <div class="indent1">
-            <h2>Complaint Form</h2>
-            <p>Have you noticed trash cans that has been over filled or simply garbage that has been discarded inapproprately? Please inform us so we inform the responsble party for rectification.</p>
+            <h2>Form tom report an issue.</h2>
+            <p>Have you noticed trash cans that has been over filled or simply garbage that has been discarded inappropriately? Please inform us so we inform the responsble party for rectification.</p>
 
             <form id="complaint-form" action="#" th:action="@{/submitted}" th:object="${complaint}" method="post">
                 <fieldset>
@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="field">
-                        <label>Please describe your complaint:</label>
+                        <label>Please describe the issue:</label>
                         <!--input type="text" th:field="*{description}"/-->
                         <textarea cols="1" rows="1" th:field="*{description}"></textarea>
                         <input type="submit" value="submit">
