@@ -32,7 +32,6 @@ public class ClientService {
 
     public void signUp(Client clientObj) {
         client = clientRepository.save(clientObj);
-
     }
     public boolean logIn(String emailId,String password) {
         //List<Client> clientList = clientRepository.findByEmailId(emailID);

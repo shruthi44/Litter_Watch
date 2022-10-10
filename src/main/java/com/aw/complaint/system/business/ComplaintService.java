@@ -20,7 +20,6 @@ public class ComplaintService {
         complaintRepository.save(complaint);
 
     }
-
     public Complaint trackComplaintById(Long id){
     Optional<Complaint> optionalComplaint=complaintRepository.findById(id);
     if (optionalComplaint.isPresent()){
