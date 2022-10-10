@@ -5,7 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="style.css" rel="stylesheet" type="text/css" />
 
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
 </head>
 <body id="page5">
@@ -16,9 +17,9 @@
             <li><a href="/" class="act">Home</a></li>
             <li><a href="/about-us">About Us</a></li>
             <li><a href="/articles">Articles</a></li>
-<!--
-            <li><a href="/complaint-page">Complaint Form</a></li>
--->
+            <!--
+                        <li><a href="/complaint-page">Complaint Form</a></li>
+            -->
 
             <li><a href="/login">Log in</a></li>
 
@@ -33,17 +34,48 @@
             <h2>Sign up Form</h2>
             <p>Register for our newsletter and a bunch of other fun stuff...</p>
 
-            <form action="/signup" method="POST" th:object="${client}">
-                <p> First Name:<input type="text" th:field="*{firstName}"/></p>
-                <p>Last Name:<input type="text" th:field="*{lastName}"/></p>
-                <p> Email Address:<input type="text" th:field="*{emailId}"/></p>
-                <p>Password:<input type="password" th:field="*{password}"/></p>
-                <p>Admin:<input type="checkbox" th:field="*{admin}"/></p>
-                <input type="submit" value="submit"/>
+            <!--  <form action="/signup" method="POST" th:object="${client}">
+                  <p> First Name:<input type="text" th:field="*{firstName}"/></p>
+                  <p>Last Name:<input type="text" th:field="*{lastName}"/></p>
+                  <p> Email Address:<input type="text" th:field="*{emailId}"/></p>
+                  <p>Password:<input type="password" th:field="*{password}"/></p>
+                  <p>Admin:<input type="checkbox" th:field="*{admin}"/></p>
+                  <input type="submit" value="submit"/>
+              </form>-->
+
+
+            <form class="row g-1 needs-validation" novalidate style="padding: 10px 100px 10px 10px;margin: 10px 10px 10px 10px;" action="/signup" method="POST" th:object="${client}">
+                <div class="col-md-12">
+                    <label for="validationCustom01" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="validationCustom01"  th:field="*{firstName}" required>
+                </div>
+                <div class="col-md-12">
+                    <label for="validationCustom02" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="validationCustom02" th:field="*{lastName}"  required>
+                </div>
+                <div class="col-md-12">
+                    <label for="validationCustomUsername" class="form-label">Email</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+
+                        <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" th:field="*{emailId}" required>
+                        <div class="col-md-12">
+                            <label for="validationCustom03" class="form-label">Password</label>
+                            <input type="text" class="form-control" id="validationCustom03" th:field="*{password}"  required>
+                        </div>
+                        <div class="col-12">
+                            Admin: <input type="checkbox" th:field="*{admin}">
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <button style="margin:20px 0px 20px 0px" class="btn btn-primary" type="submit">submit</button>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
-</div>
-
+    </div>
 </body>
 </html>
