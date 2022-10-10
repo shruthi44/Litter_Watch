@@ -36,7 +36,7 @@
       <p><b>Click here to change status for all submitted complaints</b> <a href="/viewall"><button>View All</button></a>
     </div>
 
-    <div>
+    <div th:if="${client.admin ne true}" >
 
       <p><b>Click here to see your previous complaints</b>  <a href="/view"><button>View all</button></a></p>
 
