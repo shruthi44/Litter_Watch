@@ -23,8 +23,8 @@ public class ClientController {
     }
 
     @PostMapping("/")
-    public String home(@RequestParam("emailId") String emailId,Model model) {
-        clientService.logIn(emailId);
+    public String home(@RequestParam("emailId") String emailId,@RequestParam("emailId") String password,Model model) {
+        clientService.logIn(emailId,password);
         //model.addAttribute("client-namePost",name2);
         return "redirect:/complaint-page";
     }
