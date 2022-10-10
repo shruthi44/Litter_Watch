@@ -79,13 +79,13 @@ h3 { font-size:1em; color:#89b700; line-height:1.5em; margin-bottom:15px;}
 
 
 /*header*/
-#header {height:90px; no-repeat left top;}
+#header {height:334px; background:url(static/Recycling-Bins1.jpg) no-repeat left top;}
 #header .logo { position:absolute; left:33px; top:145px;}
 
 /*content*/
-#content { background:url(static/cont-bg.gif) no-repeat left top; min-height:566px; height:auto!important; height:566px;}
+#content { background:url(images/cont-bg.gif) no-repeat left top; min-height:566px; height:auto!important; height:566px;}
 #content .indent { padding-bottom:20px;}
-#content .indent1 { padding:30px 200px 98px 200px}
+#content .indent1 { padding:30px 20px 98px 308px;}
 
 /*footer*/
 #footer { height:60px; margin-top:-60px; position:relative; color:#414141;}

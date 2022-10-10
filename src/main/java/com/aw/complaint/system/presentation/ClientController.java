@@ -10,31 +10,23 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
-
 @Controller
 public class ClientController {
 
     @Autowired
     ClientService clientService;
 
-    @GetMapping("/login")
-    public String login(Model model) {
-        Client client_login = new Client();
-        model.addAttribute("client_emailId",client_login.getEmailId());
-        model.addAttribute("client_password",client_login.getPassword());
-        model.addAttribute("client_isAdmin",client_login.isAdmin());
-        return "login";
+    @GetMapping("/")
+    public String home(Model model) {
+        model.addAttribute("client_emailId",new Client().getEmailId());
+        return "homepage";
     }
 
-    @PostMapping("/login")
-    public String login(@RequestParam("emailId") String emailId,@RequestParam("password") String password,Model model) {
-        if(clientService.logIn(emailId,password)){
-            model.addAttribute("client",clientService.getClient());
-            return "welcome";
-        }else {
-            return "redirect:/login";
-        }
+    @PostMapping("/")
+    public String home(@RequestParam("emailId") String emailId,Model model) {
+        clientService.logIn(emailId);
+        //model.addAttribute("client-namePost",name2);
+        return "redirect:/complaint-page";
     }
 
     @GetMapping("/signup")
@@ -44,15 +36,8 @@ public class ClientController {
     }
 
     @PostMapping("/signup")
-    public String signup(@ModelAttribute Client client, Model model) {
+    public String logIn(@ModelAttribute Client client, Model model) {
         clientService.signUp(client);
-        model.addAttribute("client",clientService.getClient());
-        return "welcome";
-    }
-
-    @GetMapping("/logout")
-    public String logout(HttpServletRequest request) {
-        clientService.logOut(request);
         return "redirect:/";
     }
 
