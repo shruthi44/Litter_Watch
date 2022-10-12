@@ -84,5 +84,4 @@ public class Complaint {
         DateTimeFormatter formatType = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         return registeredDateTime.format(formatType);
     }
-
 }

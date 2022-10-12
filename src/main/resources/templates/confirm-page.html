@@ -28,19 +28,11 @@
     <div id="content">
         <div class="indent1">
             <h2>Thank you for taking the initiation......</h2>
-
+            <h3>
             Your tracking ID is: <span th:text="${trackingId}"></span>
 
             <div> <a th:href="@{/confirm-page(trackingId=${trackingId})}">Click here to view the details of reported issue</a> </div>
-
-             <!--<div th:text="${trackingId}"></div>-->
- <!--           <div>
-
-                <form action="#" th:action="@{/confirm-page}"  method="get">
-                    Enter tracking ID to check Complaint status: <input type="text" name="trackingId"/>
-                    <input type="submit" value="submit">
-                </form>
-            </div>-->
+            </h3>
         </div>
     </div>
     <!-- footer -->

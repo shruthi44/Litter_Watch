@@ -30,7 +30,7 @@
     <div id="content">
         <div class="indent1">
             <h2>Your reported issue details</h2>
-
+<h3>
             <div th:if="${complaint ne null}">
 
                 Location: <span th:text="${complaint.place}"></span>
@@ -58,7 +58,7 @@
             </div>
 
             <div th:if="${complaint eq null}">No entry found </div>
-
+            </h3>
         </div>
     </div>
 
