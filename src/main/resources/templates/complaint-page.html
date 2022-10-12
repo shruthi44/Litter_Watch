@@ -35,30 +35,15 @@
 
             <form id="complaint-form" action="#" th:action="@{/submitted}" th:object="${complaint}" method="post">
                 <fieldset>
-<!--                    <div class="field">-->
-<!--                        <label>Name:</label>-->
-<!--                        <input type="text" th:field="*{name}"/>-->
-<!--                    </div>-->
-<!--                    <div class="field">-->
-<!--                        <label>E-mail:</label>-->
-<!--                        <input type="text" th:field="*{email}"/>-->
-<!--                    </div>-->
-<!--                    <div class="field">-->
-<!--                        <label>Phone:</label>-->
-<!--                        <input type="text" th:field="*{phone}"/>-->
-<!--                    </div>-->
-
                     <div class="field">
                         <label>Location:</label>
                         <input type="text" th:field="*{place}"/>
                         <br/>
                         <br/>
-                        <!--input type="submit" value="submit"-->
                     </div>
 
                     <div class="field">
                         <label>Please describe the issue:</label>
-                        <!--input type="text" th:field="*{description}"/-->
                         <textarea cols="1" rows="1" th:field="*{description}"></textarea>
                         <input type="submit" value="submit">
                     </div>

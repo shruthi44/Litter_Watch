@@ -34,9 +34,9 @@
             <li><a href="/" class="act">Home</a></li>
             <li><a href="/about-us">About Us</a></li>
             <li><a href="/articles">Articles</a></li>
-<!--
-            <li><a href="/complaint-page">Complaint Form</a></li>
--->
+            <!--
+                        <li><a href="/complaint-page">Complaint Form</a></li>
+            -->
             <li th:if="${client eq null}"><a href="/signup">Sign up</a></li>
             <li th:if="${client eq null}"><a href="/login">Log in</a></li>
             <li th:if="${client ne null}"><a href="/logout">Log out</a></li>
@@ -73,18 +73,6 @@
                 Enter tracking ID to check report status: <input type="text" maxlength="4" size="50"name="trackingId"/>
                 <input type="submit" value="submit">
             </form>
-
-            <!--<form action="/" method="POST">
-                <div>
-                    <a href="/signup"><i>Click here to Sign Up</i></a>
-                </div>
-                Enter Email: <input th:text="${client_emailId}" name="emailId"/>
-                <br>
-                <p>Admin:<input type="checkbox" th:text="${admin}"/></p>
-                <br>
-                <input type="submit"/>
-                <p></p>
-            </form>-->
         </div>
 
     </div>

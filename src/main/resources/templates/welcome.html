@@ -16,9 +16,6 @@
       <li><a href="/" class="act">Home</a></li>
       <li><a href="/about-us">About Us</a></li>
       <li><a href="/articles">Articles</a></li>
-      <!--
-                  <li><a href="/complaint-page">Complaint Form</a></li>
-      -->
       <li th:if="${client eq null}"><a href="/signup">Sign up</a></li>
       <li th:if="${client eq null}"><a href="/login">Log in</a></li>
       <li th:if="${client ne null}"><a href="/logout">Log out</a></li>
@@ -32,32 +29,32 @@
     <div class="indent1">
       <div class="indent">
 
-    <h2 th:text="'Welcome, ' + ${client.firstName} + ' ' + ${client.lastName}+'.....'"></h2>
+        <h2 th:text="'Welcome, ' + ${client.firstName} + ' ' + ${client.lastName}+'.....'"></h2>
         <h3>
-        <div th:if="${client.admin eq true}" >
-       <p><b>Click here to change status for all submitted reports</b>
+          <div th:if="${client.admin eq true}" >
+            <p><b>Click here to change status for all submitted reports</b>
 
 
-         <a href="/viewall"><button>View All</button></a>
-    </div>
+              <a href="/viewall"><button>View All</button></a>
+          </div>
 
-    <div th:if="${client.admin ne true}" >
+          <div th:if="${client.admin ne true}" >
 
-     <p><b>Click here to see your previous reported issue details</b>
-      </br>
-      <a href="/view"><button>View all</button></a></p>
+            <p><b>Click here to see your previous reported issue details</b>
+              </br>
+              <a href="/view"><button>View all</button></a></p>
 
-      <p><b>Click here to report an issue</b>
+            <p><b>Click here to report an issue</b>
 
-        </br>
-        <a href="/complaint-page"><button>Report</button></a>  </p>
+              </br>
+              <a href="/complaint-page"><button>Report</button></a>  </p>
 
 
-    </div>
+          </div>
         </h3>
-    </div>
+      </div>
 
-</div>
+    </div>
 
   </div>
   <!-- footer -->

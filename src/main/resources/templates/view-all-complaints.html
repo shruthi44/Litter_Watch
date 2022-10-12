@@ -32,9 +32,6 @@ td{
             <li><a href="/" class="act">Home</a></li>
             <li><a href="/about-us">About Us</a></li>
             <li><a href="/articles">Articles</a></li>
-            <!--
-                        <li><a href="/complaint-page">Complaint Form</a></li>
-            -->
             <li th:if="${client eq null}"><a href="/signup">Sign up</a></li>
             <li th:if="${client eq null}"><a href="/login">Log in</a></li>
             <li th:if="${client ne null}"><a href="/logout">Log out</a></li>
@@ -47,24 +44,24 @@ td{
     <div id="content">
         <div class="indent1">
             <div class="indent">
-        <table>
-            <tr>
-                <th>Tracking ID</th>
-                <th>Place</th>
-                <th>Description</th>
-                <th>Registered Date and Time</th>
-                <th>Status</th>
-                <th>Update Status</th>
-            </tr>
-            <tr th:each="i : ${viewallcomplaints}">
-                <td th:text="${i.id}"></td>
-                <td th:text="${i.place}"></td>
-                <td th:text="${i.description}"></td>
-                <td th:text="${i.formattedDateTime}"></td>
-                <td th:text="${i.status}"></td>
-                <td><a th:href="@{/confirm-page(trackingId=${i.id})}">Edit</a></td>
-            </tr>
-        </table>
+                <table>
+                    <tr>
+                        <th>Tracking ID</th>
+                        <th>Place</th>
+                        <th>Description</th>
+                        <th>Registered Date and Time</th>
+                        <th>Status</th>
+                        <th>Update Status</th>
+                    </tr>
+                    <tr th:each="i : ${viewallcomplaints}">
+                        <td th:text="${i.id}"></td>
+                        <td th:text="${i.place}"></td>
+                        <td th:text="${i.description}"></td>
+                        <td th:text="${i.formattedDateTime}"></td>
+                        <td th:text="${i.status}"></td>
+                        <td><a th:href="@{/confirm-page(trackingId=${i.id})}">Edit</a></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>

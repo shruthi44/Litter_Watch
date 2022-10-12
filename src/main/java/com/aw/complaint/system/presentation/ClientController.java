@@ -55,7 +55,4 @@ public class ClientController {
         clientService.logOut(request);
         return "redirect:/";
     }
-
-
-
 }

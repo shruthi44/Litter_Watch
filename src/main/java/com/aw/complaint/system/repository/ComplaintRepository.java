@@ -12,6 +12,4 @@ public interface ComplaintRepository extends JpaRepository<Complaint,Long> {
     @Query(value="select * from complaint join client on client.id= complaint.client_id where client.email_id = ?1",nativeQuery = true)
     List<Complaint> findAllByClientNativeQuery(String emailId);
 
-
-    //Complaint findById();
 }

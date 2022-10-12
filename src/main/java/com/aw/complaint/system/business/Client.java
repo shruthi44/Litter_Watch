@@ -15,18 +15,18 @@ public class Client {
     private String password;
     private boolean admin;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch=FetchType.EAGER,mappedBy = "client")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "client")
     private List<Complaint> complaints = new ArrayList<>();
 
     public Client() {
     }
 
-    public Client(String firstName, String lastName, String emailId,String password, boolean admin) {
+    public Client(String firstName, String lastName, String emailId, String password, boolean admin) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailId = emailId;
         this.admin = admin;
-        this.password=password;
+        this.password = password;
     }
 
     public Long getId() {
@@ -68,6 +68,7 @@ public class Client {
     public void setAdmin(boolean admin) {
         this.admin = admin;
     }
+
     public String getPassword() {
         return password;
     }
@@ -76,12 +77,6 @@ public class Client {
         this.password = password;
     }
 
-    public void addComplaint(Complaint complaint) {
-        complaints.add(complaint);
-        complaint.setClient(this);
-    }
-
-    public long getLastComplaint() {
-        return complaints.get(complaints.size()-1).getId();
-    }
 }
+
+

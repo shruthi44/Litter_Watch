@@ -23,19 +23,6 @@ public class SiteController {
         model.addAttribute("client",clientService.getClient());
         return "articles";
     }
-
-    @GetMapping("/sitemap")
-    public String sitemap(Model model) {
-        model.addAttribute("client",clientService.getClient());
-        return "sitemap";
-    }
-
-    @GetMapping("/testpage")
-    public String testpage(Model model) {
-        model.addAttribute("client",clientService.getClient());
-        return "testpage";
-    }
-
     @GetMapping("/")
     public String homepage(Model model) {
         model.addAttribute("client",clientService.getClient());

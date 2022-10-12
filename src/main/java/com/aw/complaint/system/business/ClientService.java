@@ -22,11 +22,13 @@ public class ClientService {
     public ClientService() {
     }
     public ClientService(Client client) {
+
         this.client = client;
     }
 
 
     public Client getClient() {
+
         return client;
     }
 
@@ -35,8 +37,6 @@ public class ClientService {
 
     }
     public boolean logIn(String emailId,String password) {
-        //List<Client> clientList = clientRepository.findByEmailId(emailID);
-        //List<Client> clientList1 = clientRepository.findClientByPassword(password);
         List<Client> clientList = clientRepository.findByEmailIdAndPassword(emailId,password);
         if (Objects.nonNull(clientList) && clientList.size() > 0) {
             client = clientList.get(0);
@@ -45,17 +45,8 @@ public class ClientService {
         return false;
     }
 
-    public void createComplaint(Complaint complaint) {
-        complaint.setRegisteredDateTime(LocalDateTime.now());
-        client.addComplaint(complaint);
-        clientRepository.save(client);
-    }
-
     public void logOut(HttpServletRequest request){
+
         request.getSession().invalidate();
     }
-
-   /* public void logOut(String emailID){
-    }
-*/
 }
