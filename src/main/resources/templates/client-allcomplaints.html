@@ -39,7 +39,7 @@ td{
 
     </div>
 
-    <div class="logo"><a href="#"><img src="complaint form.webp" height="500px" width="1000px" alt="" /></a></div>
+    <div class="logo"><a href="#"><img src="complaint form.png" height="500px" width="1000px" alt="" /></a></div>
     <!-- content -->
     <div id="content">
         <div class="indent1">
@@ -48,14 +48,14 @@ td{
             <tr>
                 <th>Tracking ID</th>
                 <th>Place</th>
-                <th>Description</th>
+                <th style="column-width:350px" >Description</th>
                 <th>Registered Date and Time</th>
                 <th>Status</th>
             </tr>
             <tr th:each="i : ${viewcomplaints}">
                 <td th:text="${i.id}"></td>
                 <td th:text="${i.place}"></td>
-                <td th:text="${i.description}"></td>
+                <td style="column-width:350px" th:text="${i.description}"></td>
                 <td th:text="${i.formattedDateTime}"></td>
                 <td th:text="${i.status}"></td>
             </tr>

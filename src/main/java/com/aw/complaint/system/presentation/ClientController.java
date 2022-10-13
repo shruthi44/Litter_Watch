@@ -26,7 +26,6 @@ public class ClientController {
         model.addAttribute("client_isAdmin",client_login.isAdmin());
         return "login";
     }
-
     @PostMapping("/login")
     public String login(@RequestParam("emailId") String emailId,@RequestParam("password") String password,Model model) {
         if(clientService.logIn(emailId,password)){
@@ -42,14 +41,12 @@ public class ClientController {
         model.addAttribute("client",new Client());
         return "signuppage";
     }
-
     @PostMapping("/signup")
     public String signup(@ModelAttribute Client client, Model model) {
         clientService.signUp(client);
         model.addAttribute("client",clientService.getClient());
         return "welcome";
     }
-
     @GetMapping("/logout")
     public String logout(HttpServletRequest request) {
         clientService.logOut(request);
