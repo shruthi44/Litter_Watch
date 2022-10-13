@@ -12,6 +12,22 @@
         box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
     }
 </style>
+    <script>
+        function validateform(){
+var emailId=document.login.emailId.value;
+
+if (emailId==null || emailId==""){
+   alert("Email Id cannot be empty");
+   return false;
+}
+ var password=document.login.password.value;
+
+if (password==null || password==""){
+   alert("Password cannot be empty");
+   return false;
+}
+}
+   </script>
 </head>
 <body id="page9">
 <div id="main">
@@ -37,7 +53,7 @@
         <div class="indent1">
             <div class="indent">
                 <h2>Login Form</h2>
-                <form class="row g-1 needs-validation" novalidate style="padding: 10px 100px 10px 10px;margin: 10px 10px 10px 10px;" action="/login" method="POST" >
+                <form name="login" class="row g-1 needs-validation" novalidate style="padding: 10px 100px 10px 10px;margin: 10px 10px 10px 10px;" action="/login" method="POST" onsubmit="return validateform()" >
                     <div class="col-md-12">
                         <label for="validationCustom01" class="form-label">Enter EmailId:</label>
                         <input type="text" class="form-control" id="validationCustom01"  th:text="${client_emailId}" name="emailId"required>

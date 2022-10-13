@@ -14,6 +14,43 @@
     }
 </style>
 
+    <script>
+        function validateform(){
+var firstname=document.signup.firstName.value;
+
+if (firstname==null || firstname==""){
+   alert("First Name cannot be empty");
+   <!--document.getElementById("validationCustom01").focus();-->
+   return false;
+}
+ var lastname=document.signup.lastName.value;
+
+if (lastname==null || lastname==""){
+   alert("Last Name cannot be empty");
+   return false;
+}
+var email=document.signup.emailId.value;
+
+if (email==null || email==""){
+   alert("Email Id cannot be empty");
+   return false;
+}
+else {
+var validRegex = /^[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+if (!email.match(validRegex)) {
+   alert("Invalid email address!");
+   return false;
+  }
+}
+var password=document.signup.password.value;
+
+if (password==null || password==""){
+   alert("Password cannot be empty");
+   return false;
+}
+
+    }
+</script>
 </head>
 <body id="page5">
 <div id="main">
@@ -34,8 +71,8 @@
     <div id="content">
         <div class="indent1">
             <h2>Sign up Form</h2>
-            <p>Register for our newsletter and a bunch of other fun stuff...</p>
-            <form class="row g-1 needs-validation" novalidate style="padding: 10px 100px 10px 10px;margin: 10px 10px 10px 10px;" action="/signup" method="POST" th:object="${client}">
+            <p>Sign Up to report an issue..</p>
+            <form name="signup" class="row g-1 needs-validation" novalidate style="padding: 10px 100px 10px 10px;margin: 10px 10px 10px 10px;" action="/signup" method="POST" th:object="${client}" onsubmit="return validateform()">
                 <div class="col-md-12">
                     <label for="validationCustom01" class="form-label">First name</label>
                     <input type="text" class="form-control" id="validationCustom01"  th:field="*{firstName}" required>
